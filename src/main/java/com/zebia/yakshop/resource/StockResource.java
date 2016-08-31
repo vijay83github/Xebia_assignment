@@ -10,24 +10,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zebia.yakshop.model.Yak;
+import com.zebia.yakshop.model.YakProducts;
 import com.zebia.yakshop.service.HerdService;
 @RestController
-@RequestMapping(value = "/yak-shop/herd")
-public class HerdResource {
+@RequestMapping(value = "/yak-shop/stock")
+public class StockResource {
  
     @Autowired
-    HerdService herdService;  
+    ProductService herdService;  
  
     
-    //-------------------Retrieve All Yaks--------------------------------------------------------
+    //-------------------Retrieve All Stocks--------------------------------------------------------
      
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Yak>> listAllYaks() {
-        List<Yak> yaks = herdService.findAllYaks();
-        if(yaks.isEmpty()){
-            return new ResponseEntity<List<Yak>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+    public ResponseEntity<YakProducts> listAllStock() {
+    	YakProducts products= herdService.findAllStock();
+        if(products==null){
+            return new ResponseEntity<YakProducts>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
-        return new ResponseEntity<List<Yak>>(yaks, HttpStatus.OK);
+        return new ResponseEntity<YakProducts>(products, HttpStatus.OK);
     }
  
  

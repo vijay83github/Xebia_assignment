@@ -1,30 +1,27 @@
 package com.zebia.yakshop.service;
 
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zebia.yakshop.model.Yak;
 
 @Service("herdService")
 public class HerdServiceImpl implements HerdService{
-	private static List<Yak> users = new ArrayList<Yak>();
+	private static final String HERD_XML = "herd.xml";
+
+	private static List<Yak> yaks = new ArrayList<Yak>();
 	
+	@Autowired
+	HerdReader herdReader;
 
 	public List<Yak> findAllYaks() {
-		if(users!=null && users.isEmpty()){
-			users = readList();
+		if(yaks!=null && yaks.isEmpty()){
+			yaks = herdReader.readList(HERD_XML);
 		}
-		return users;
+		return yaks;
 	}
 	
 
