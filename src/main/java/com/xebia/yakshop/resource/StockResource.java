@@ -20,7 +20,7 @@ public class StockResource {
  
     //-------------------Retrieve All Stock--------------------------------------------------------
      
-    @RequestMapping(value= "/{elapsedDays}", method = RequestMethod.GET, produces="application/json")
+    @RequestMapping(value= "/{days}", method = RequestMethod.GET, produces="application/json")
     
     public ResponseEntity<YakProducts> listAllStock(@PathVariable Integer days) {
     	YakProducts products= productFacade.findAllStock(days - YakshopConstants.CURRENT_DAY);
