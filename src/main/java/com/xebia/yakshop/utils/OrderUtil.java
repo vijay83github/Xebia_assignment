@@ -1,4 +1,4 @@
-package com.xebia.yakshop.resource;
+package com.xebia.yakshop.utils;
 
 import org.springframework.http.HttpStatus;
 
