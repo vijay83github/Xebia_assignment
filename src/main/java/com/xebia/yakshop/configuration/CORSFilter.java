@@ -1,4 +1,4 @@
-package com.zebia.yakshop.configuration;
+package com.xebia.yakshop.configuration;
 
 import java.io.IOException;
 

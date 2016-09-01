@@ -1,4 +1,4 @@
-package com.zebia.yakshop.model;
+package com.xebia.yakshop.model;
 
 public class YakProducts {
 	private float milk;

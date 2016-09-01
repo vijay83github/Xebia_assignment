@@ -1,13 +1,12 @@
-package com.zebia.yakshop;
+package com.xebia.yakshop;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.WebApplicationInitializer;
 
-
-@EnableAutoConfiguration 
+@ComponentScan(basePackages={"com.xebia.yakshop"})
 @SpringBootApplication
 public class YakShopApplication extends SpringBootServletInitializer implements WebApplicationInitializer{
 
@@ -18,7 +17,6 @@ public class YakShopApplication extends SpringBootServletInitializer implements 
 	}
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		// TODO Auto-generated method stub
 		return super.configure(builder);
 	}
 

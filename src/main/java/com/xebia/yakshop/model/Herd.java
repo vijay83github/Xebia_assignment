@@ -1,5 +1,6 @@
-package com.zebia.yakshop.model;
+package com.xebia.yakshop.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
@@ -8,6 +9,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 public class Herd {
 	@JacksonXmlProperty(localName="labyak")
 	@JacksonXmlElementWrapper(useWrapping = false)
+	@JsonProperty(value="herd")
     private Yak[] yaks;
 
 	public Yak[] getYaks() {

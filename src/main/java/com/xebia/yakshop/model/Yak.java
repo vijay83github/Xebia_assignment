@@ -1,19 +1,21 @@
-package com.zebia.yakshop.model;
+package com.xebia.yakshop.model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 
 public class Yak implements Serializable{
 	@JacksonXmlProperty(isAttribute=true)
 	private String name;
 	@JacksonXmlProperty(isAttribute=true)
-	private int age;
+	private float age;
 	
-	private int lastShaved;
-	
+	@JsonProperty(value="age-last-shaved")
+	private float lastShaved;
+	@JsonIgnore
 	@JacksonXmlProperty(isAttribute=true)
 	private String sex;
 
@@ -34,31 +36,38 @@ public class Yak implements Serializable{
 	/**
 	 * @return the age
 	 */
-	public int getAge() {
+	public float getAge() {
 		return age;
 	}
 
 	/**
 	 * @param age the age to set
 	 */
-	public void setAge(int age) {
+	public void setAge(float age) {
 		this.age = age;
 	}
 
 	/**
 	 * @return the lastShaved
 	 */
-	public int getLastShaved() {
-		if(lastShaved==0)
-			return age;
+	public float getLastShaved() {
 		return lastShaved;
 	}
+	
 
 	/**
 	 * @param lastShaved the lastShaved to set
 	 */
-	public void setLastShaved(int lastShaved) {
+	public void setLastShaved(float lastShaved) {
 		this.lastShaved = lastShaved;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 	
 
