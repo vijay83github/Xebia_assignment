@@ -5,13 +5,9 @@ import org.springframework.stereotype.Component;
 @Component("productCalculator")
 public class ProductCalculator implements YakshopConstants{
 
-	
-
-	
-
 	public float calculateMilk(float age, int elapsedDays) {
 		float milk = 0f;
-		for (int i = 1; i <= elapsedDays; i++) {
+		for (int i = 0; i <= elapsedDays; i++) {
 			milk += FIXED_MILK
 					- (calculateAgeInDays(age, i))
 					* MILK_FACTOR;

@@ -7,19 +7,20 @@ import com.xebia.yakshop.model.Herd;
 import com.xebia.yakshop.model.Yak;
 import com.xebia.yakshop.model.YakProducts;
 import com.xebia.yakshop.utils.ProductCalculator;
+import com.xebia.yakshop.utils.YakshopConstants;
 
 @Component("productFacade")
 public class ProductFacadeImpl implements ProductFacade{
 
 	@Autowired
-	HerdService  herdService;
+	HerdReader  herdReader;
 	
 	@Autowired
 	ProductCalculator  productCalculator;
 	
 	@Override
 	public YakProducts findAllStock(Integer elapsedDays) {
-		Herd herd = herdService.findAllYaks(elapsedDays);
+		Herd herd = herdReader.readList(YakshopConstants.HERD_XML);
 		Yak[] yaks =  herd.getYaks();
 		float milk= 0f;
 		float skins= 3f;

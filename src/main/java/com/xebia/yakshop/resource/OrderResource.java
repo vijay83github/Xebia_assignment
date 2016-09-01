@@ -28,32 +28,12 @@ public class OrderResource {
 		
 		YakProducts requestedProducts = new YakProducts();
 		
-		HttpStatus httpStatus = compareAvailableAndRequestedProductQuality(availableProducts, orderInfo,
+		HttpStatus httpStatus = OrderUtil.compareAvailableAndRequestedProductQuality(availableProducts, orderInfo,
 				requestedProducts);
 
 		return new ResponseEntity<YakProducts>(requestedProducts, httpStatus);
-
 	}
 
-	private HttpStatus compareAvailableAndRequestedProductQuality(YakProducts availableProducts, OrderInfo orderInfo,
-			YakProducts requestedProducts) {
-
-		int count = 0;
-		if (orderInfo.getOrder().getMilk() < availableProducts.getMilk()) {
-			requestedProducts.setMilk(orderInfo.getOrder().getMilk());
-			count++;
-		}
-		if (orderInfo.getOrder().getSkins() < availableProducts.getSkins()) {
-			requestedProducts.setSkins(orderInfo.getOrder().getSkins());
-			count++;
-		}
-		if (count == 2) {
-			return HttpStatus.CREATED;
-		} else if (count == 1) {
-			return HttpStatus.PARTIAL_CONTENT;
-		} else {
-			return HttpStatus.NO_CONTENT;
-		}
-	}
+	
 
 }

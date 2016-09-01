@@ -24,13 +24,15 @@ public class HerdResource {
      
     @RequestMapping(value= "/{days}",  method = RequestMethod.GET, produces="application/json")
     public ResponseEntity<Herd> listAllYaks(@PathVariable Integer days) {
-        Herd herd = herdService.findAllYaks(days - YakshopConstants.CURRENT_DAY);
+        Herd herd = herdService.findAllYaks(days);
         if(herd==null){
             return new ResponseEntity<Herd>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
         
         return new ResponseEntity<Herd>(herd, HttpStatus.OK);
     }
+    
+    
  
  
  

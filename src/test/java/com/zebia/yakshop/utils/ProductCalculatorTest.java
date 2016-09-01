@@ -18,13 +18,13 @@ public class ProductCalculatorTest {
 	public void testCalculateMilk() {
 		assertEquals(491,Math.round(calculator.calculateMilk(4, 13)));
 		assertEquals(335,Math.round(calculator.calculateMilk(8, 13)));
-		assertEquals(296,Math.round(calculator.calculateMilk(9, 13)));
+		assertEquals(277,Math.round(calculator.calculateMilk(9.5f, 13)));
 	}
 
 	@Test
 	public void testCalculateSkins() {
-		assertEquals(0,Math.round(calculator.calculateSkins(4, 13)));
-		assertEquals(1,Math.round(calculator.calculateSkins(4, 14)));
+		assertEquals(0,Math.round(calculator.calculateSkins(4, 12)));
+		assertEquals(1,Math.round(calculator.calculateSkins(4, 13)));
 	}
 
 }

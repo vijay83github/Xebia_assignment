@@ -27,8 +27,8 @@ public class HerdServiceImpl implements HerdService, YakshopConstants{
 	private Herd updateAgeWithElapsedDays(Herd herd, Integer elapsedDays) {
 		Yak[] yaks =  herd.getYaks();
 		for (Yak yak : yaks) {
-			float elapsedAge = elapsedDays*DAYS_TO_YEARS_FACTOR;
-			int daysToShave = productCalculator.calculateDaysToShave(yak.getAge(),elapsedDays);
+			float elapsedAge = (elapsedDays)*DAYS_TO_YEARS_FACTOR;
+			int daysToShave = productCalculator.calculateDaysToShave(yak.getAge(),(elapsedDays-CURRENT_DAY));
 			yak.setLastShaved(yak.getAge());
 			int shavingDone = (elapsedDays-CURRENT_DAY)/(daysToShave+DAYS_REQUIRED_TO_SHAVE);
 			if(shavingDone>0){
